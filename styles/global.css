@@ -1,0 +1,242 @@
+:root {
+  /******** font sizes ********/
+  /* body font size */
+  
+}
+
+:root {
+	--text-base-size: 1em; 
+
+  --display: clamp(2.5rem, 5vw + 1.25rem, 4.75rem);
+	--xxlarge: clamp(2.5rem, 3vw + 1.25rem, 3.5rem);
+	--xlarge: clamp(2rem, 2vw + 1.25rem, 3rem);
+	--large: clamp(1.5rem, 1vw + 1.25rem, 2rem);
+	--medium: clamp(1.25rem, 1vw + 0.75rem, 1.5rem);
+	--base: clamp(1rem, 2vw, 1.25rem);
+	--small: clamp(0.75rem, 1vw + 0.25rem, 0.875rem);
+	--xsmall: clamp(0.625rem, 2vw, 0.75rem);
+	
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+}
+
+/**
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr[title] {
+  text-decoration: underline dotted;
+}
+
+html,
+body {
+	height: 100%;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+/**
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
+    monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 33%;
+}
+
+/**
+Remove the inheritance of text transform in Edge and Firefox.
+1. Remove the inheritance of text transform in Firefox.
+*/
+
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Utilities */
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+
+/* keyframes */
+
+@keyframes animate-to-right {
+	0% {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+
+	100% ¶{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+@keyframes animate-up {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% ¶{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+/* Animations */
+
+.animate-to-right {
+	animation: animate-to-right 2s;
+}
+.animate-up {
+	animation: animate-up 2s;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Inter var, Proxima Nova, system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-size: var(--base);
+    margin: 0;
+		@apply bg-[offWhite];
+  }
+
+}
+
+h1,
+h2,
+h3,
+h4 {
+	overflow-wrap: break-word;
+	@apply leading-tight tracking-tight;
+}
+
+h1 {
+	font-size: var(--xxlarge);
+  @apply grid tracking-wide mt-2 mb-4 font-bold uppercase;
+}
+
+h2 {
+	font-size: var(--xlarge);
+	@apply grid tracking-wide mt-2 mb-4 text-brand font-bold;
+}
+
+h3 {
+	font-size: var(--large);
+	@apply grid tracking-wide mt-2 mb-4 text-brand font-semibold;
+}
+
+h4 {
+	font-size: var(--medium);
+	@apply grid tracking-wide mt-2 mb-4 text-brand font-semibold;
+	
+}
+
+p {
+	font-size: var(--base);
+}
+
+@layer components {
+	section {
+		@apply grid place-items-center content-center w-full mx-auto bg-transparent pt-10 pb-14 md:py-14 lg:py-24 px-6 sm:px-8 md:px-12 lg:px-16 2xl:px-24;
+	}
+
+	.container {
+		@apply grid place-items-center mx-auto max-w-[1360px];
+	}
+
+	.section-title {
+		@apply flex flex-col justify-center text-center;
+	}
+}
+
+@layer utilities {
+	.bg-gradient {
+		@apply bg-gradient-to-r from-white to-accent;
+	}
+
+	
+/* nav-links */
+
+.nav-link-animation {
+	@apply absolute -bottom-1 left-0 h-0.5 w-full scale-x-0 transform rounded-sm bg-accent transition-all duration-300 group-hover:scale-x-100;
+}
+
+}

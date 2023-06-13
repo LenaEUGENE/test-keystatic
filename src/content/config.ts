@@ -5,6 +5,10 @@ const gallery = defineCollection({
   schema: z.object({
     img: z.string(),
     img_alt: z.string().optional(),
+    titre: z.string(),
+    légende: z.string(),
+    lieu: z.string(),
+
   }),
 });
 
